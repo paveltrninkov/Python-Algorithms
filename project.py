@@ -50,7 +50,22 @@ def InsertionSort(array):
             array[y + 1] = key
     print(array)
             
-InsertionSort(unsorted)
+#InsertionSort(unsorted)
 
 
+def QuickSort(array):
+    if len(array) < 2:
+        return array
+    else:
+        pivot = array[-1]
+        smaller, equal, larger = [], [], []
+        for i in array:
+            if i < pivot:
+                smaller.append(i)
+            elif i == pivot:
+                equal.append(i)
+            else:
+                larger.append(i)
+        return QuickSort(smaller) + equal + QuickSort(larger)
 
+print(QuickSort(unsorted))
